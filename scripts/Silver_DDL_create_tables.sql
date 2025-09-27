@@ -2,6 +2,7 @@
 -- in this we can see all DDL statements for crm and erp source
 
 
+
 if OBJECT_ID('silver.crm_cust_info','U') is not null
 	Drop TABLE silver.crm_cust_info;
 CREATE TABLE silver.crm_cust_info (
