@@ -11,7 +11,8 @@ CREATE TABLE silver.crm_cust_info (
 	cst_lastname nvarchar(50),
 	cst_marital_status nvarchar(50),
 	cst_gndr nvarchar(50),
-	cst_create_date nvarchar(50)
+	cst_create_date nvarchar(50),
+	dwh_create_date datetime2 default getdate()
 );
 
 if OBJECT_ID('silver.crm_prd_info', 'U') is not null
@@ -24,7 +25,8 @@ CREATE TABLE silver.crm_prd_info (
 	prd_cost int,
 	prd_line nvarchar(50),
 	prd_start_dt date,
-	prd_end_dt date
+	prd_end_dt date,
+	dwh_create_date datetime2 default getdate()
 );
 
 if object_id('silver.crm_sales_details', 'U') is not null
@@ -38,7 +40,8 @@ CREATE TABLE silver.crm_sales_details(
 	sls_due_dt nvarchar(50),
 	sls_sales	int,
 	sls_quantity int,
-	sls_price int
+	sls_price int,
+	dwh_create_date datetime2 default getdate()
 );
 
 if object_id('silver.erp_CUST_AZ12','U') is not null
@@ -46,7 +49,8 @@ if object_id('silver.erp_CUST_AZ12','U') is not null
 CREATE TABLE silver.erp_CUST_AZ12(
 	CID nvarchar(50),
 	BDATE nvarchar(50),
-	GEN nvarchar(50)
+	GEN nvarchar(50),
+	dwh_create_date datetime2 default getdate()
 );
 
 
@@ -54,7 +58,8 @@ IF OBJECT_ID('silver.erp_loc_a101', 'U') IS NOT NULL
     DROP TABLE silver.erp_loc_a101;
 CREATE TABLE silver.erp_loc_a101 (
     cid    NVARCHAR(50),
-    cntry  NVARCHAR(50)
+    cntry  NVARCHAR(50),
+	dwh_create_date datetime2 default getdate()
 );
 
 if object_id('silver.erp_PX_CAT_G1V2', 'U') is not null
@@ -63,5 +68,6 @@ CREATE TABLE silver.erp_PX_CAT_G1V2(
 	ID nvarchar(50),
 	CAT nvarchar(50),
 	SUBCAT nvarchar(50),
-	MAINTENANCE nvarchar(50)
+	MAINTENANCE nvarchar(50),
+	dwh_create_date datetime2 default getdate()
 );
